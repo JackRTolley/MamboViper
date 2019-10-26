@@ -11,8 +11,9 @@ class MamboViperCommentTyper extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            comments: [ <MamboViperComment/> ]
+            comments: this.props.comments.map( comment => <MamboViperComment content={comment}/> )
         }
+        console.log(this.state.comments);
     }
     render() {
         return (

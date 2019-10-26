@@ -15,7 +15,7 @@ class MamboViperComment extends Component {
         super(props)
         this.state = {
             options: {
-                strings: ["<p><em>\" This is a comment. \"</em></p>"],
+                strings: [this.props.content],
                 typeSpeed: 40,
             }
         }

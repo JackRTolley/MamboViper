@@ -16,7 +16,7 @@ class MamboViperNavbar extends Component {
             <div id={this.props.id}>
                 <Navbar className={cx( Styles.NavbarStyles )} expand="lg">
                     <Navbar.Brand href="#">
-                        <i className={cx("fab", "fa-reddit", Styles.RedditIconStyles)}></i>
+                        <i className={cx("fab", "fa-reddit", Styles.RedditIconStyles, "fa-lg")}></i>
                         Reddit Against Humanity
                     </Navbar.Brand>
                 </Navbar>
