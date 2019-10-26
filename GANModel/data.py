@@ -9,6 +9,7 @@ for chunk in data:
     block = block[['controversiality','body', 'score', 'gildings']]
     block = block[block['controversiality']==1]
 
+    #popopopop
     with open('Feb28Filtered.csv', 'a') as f:
         block.to_csv(f, header=False)
 
