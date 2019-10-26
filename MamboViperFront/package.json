@@ -1,0 +1,37 @@
+{
+  "name": "mamboviperfront",
+  "version": "1.0.0",
+  "description": "Front End for the Mambo Viper App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JackRTolley/MamboViper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JackRTolley/MamboViper/issues"
+  },
+  "homepage": "https://github.com/JackRTolley/MamboViper#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "react": "^16.11.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-dom": "^16.11.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "bootstrap": "^4.3.1",
+    "emotion": "^10.0.17",
+    "nodemon": "^1.19.4",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
