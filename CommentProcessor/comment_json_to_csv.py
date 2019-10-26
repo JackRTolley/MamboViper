@@ -5,7 +5,7 @@ import csv
 subreddits = ["apple","android","technology","cats","dogs","tech","programing","hardware","linux","aww",]
 
 
-good_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQUSTUVWXYZ,.'!?;:#~[]()_+-=<>"
+good_chars = " 1234567890-=qwertyuiop]asdfghjkl;'#zxcvbnm,./!£$%^&*()_+QWERTYUIOPASDFGHJKL:@~ZXCVBNM<>?"
 
 
 for sub in subreddits:
@@ -40,18 +40,23 @@ for chunk in data:
                     is_from_sellected_subreddits = True
                     break
 
-            if (is_from_sellected_subreddits and (comment[1]['body'] != '[removed]') and (comment[1]['body'] != '[deleated]')):
+            if (is_from_sellected_subreddits):
                 
                 valid = True
 
-                for letter in comment:
+                
+
+                for letter in comment[1]['body']:
+                    any_bad_chars = True
                     for char in good_chars:
-                        any_bad_chars = False
-                        if char != letter:
-                            any_bad_chars = True
-                        
+                        if char == letter:
+                            any_bad_chars = False
+                            break
+                    if any_bad_chars:
+                        valid = False
 
 
+                if valid:
                     print(comment[1]['body'])
                     print("")
                     newCommment = [comment[1]['body']]
