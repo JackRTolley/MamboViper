@@ -71,8 +71,8 @@ Miscellaneous
         """)
 
 
-    def run(self):
-        return self.validateCommandLineArguments()
+    def run(self, args):
+        return self.validateCommandLineArguments(args)
 
 
     def load_model(self, filename):
@@ -115,5 +115,3 @@ Miscellaneous
         print(comments[0])
         return comments[0]
 
-if __name__ == "__main__":
-    CommentGenerator().run()
