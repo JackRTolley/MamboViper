@@ -116,7 +116,7 @@ Miscellaneous
 
             uniqueness = len(set(comment.split(" ")))/len(comment.split(" "))
             if '<unk>' not in comment.split(" ") and uniqueness>0.8:
-                comment = comment[0].upper() + comment[1:-4] + "."
+                comment = comment[0].upper() + comment[1:-6] + "."
                 print(comment)
                 return comment
 
