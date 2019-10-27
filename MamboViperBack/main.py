@@ -27,12 +27,13 @@ class CommentGenerator:
                 result = self.load_model('funnycon')
             elif ( "-r" in args or "--Reddit" in args):
                 # Reddit
-                pass
+                result = self.load_model('reddit')
             elif ( "-g" in args or "--Gaming" in args):
                 # Gaming
-                pass
+                result = self.load_model('games')
             elif ( "-s" in args or "--Sport" in args):
-                pass
+                # Sports
+                result = self.load_model('sports')
             elif  ( "-h" in args or "--Help" in args):
                 return ( "Help Menu..." + self.displayCommandHelp())
             else:
