@@ -12,8 +12,8 @@ warnings.simplefilter("error")
 warnings.simplefilter("ignore")
 
 def main(args):
-
-    with open(args.data_dir+'/ptb.vocab.json', 'r') as file:
+    
+    with open('datasets/finaldata.vocab.json', 'r') as file:
         vocab = json.load(file)
 
     w2i, i2w = vocab['w2i'], vocab['i2w']
@@ -66,7 +66,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-dd', '--data_dir', type=str, default='data')
     parser.add_argument('-ms', '--max_sequence_length', type=int, default=50)
-    parser.add_argument('-eb', '--embedding_size', type=int, default=300)
+    parser.add_argument('-eb', '--embedding_size', type=int, default=400)
     parser.add_argument('-rnn', '--rnn_type', type=str, default='gru')
     parser.add_argument('-hs', '--hidden_size', type=int, default=256)
     parser.add_argument('-wd', '--word_dropout', type=float, default=0)
