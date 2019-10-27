@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import MamboViperNavbar from "./Components/MamboViperNavbar/MamboViperNavbar.js";
 import MamboViperThemeChooser from "./Components/MamboViperThemeChooser/MamboViperThemeChooser.js";
 import MamboViperCommentTyper from "./Components/MamboViperCommentTyper/MamboViperCommentTyper.js";
+import MamboViperPhoneNumber from "./Components/MamboViperPhoneNumber/MamboViperPhoneNumber.js";
 
 var WebFont = require('webfontloader');
  
@@ -25,7 +26,7 @@ class App extends Component {
         this.changeSubreddit = this.changeSubreddit.bind(this);
         this.state = {
             comments: [
-                "<p><em>\" South End, 1985. Masking tape writing on brownstone windows: GLORIA XXX. Excited by predicted 100 mph winds, we grab our camera and walk in blustery streets. Rain spitting... \"</em></p>"
+                "Comments will appear here!!"
             ],
             subreddit: "-a"
         }
@@ -81,6 +82,7 @@ class App extends Component {
         return (
             <>
                 <MamboViperNavbar id="MamboViperNavbar"/>
+                <MamboViperPhoneNumber/>
                 <Container>
                     <MamboViperThemeChooser choices={[[Sport, "-s"], [GeneralChat, "-r"], [Gaming, "-g"], [Funspiracy, "-f"]]} changeSubreddit={this.changeSubreddit} handleGenerate={this.handleGenerate}/>
                     <MamboViperCommentTyper comments={this.state.comments}/>
