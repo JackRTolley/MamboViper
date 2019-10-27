@@ -30,18 +30,20 @@ class App extends Component {
         console.log("Generating Comments...");
         // Update comment list in state.
         try {
-            let URL = "";
-            let newComment = "";
+            const subreddit = "-a";
+            let URL = `http://35.246.65.193:5000/?subreddit=${subreddit}`;
+            let comment = ""
 
 
             try {
                 // FETCH
                 fetch(URL)
                 .then(response => response.json())
-                .then(data => newComment += data.comments)
+                .then(data => comment += data.comments)
             } finally {
+                console.log(`Comment: ${comment}`);
                 this.setState({
-                    comments: this.state.comments.concat(newComment)
+                    comments: this.state.comments.concat(comment)
                 })
             }
         } finally {

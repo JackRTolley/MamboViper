@@ -12,7 +12,7 @@ app = Flask(__name__)
 cors = CORS(app)
 
 @app.route('/')
-@cross_origin
+@cross_origin()
 def index():
     subreddit = request.args.get('subreddit')
     return jsonify(CommentGenerator().run(subreddit))
