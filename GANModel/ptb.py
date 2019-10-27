@@ -11,7 +11,7 @@ from utils import OrderedCounter
 
 class PTB(Dataset):
 
-    def __init__(self, data_dir, split, create_data, **kwargs):
+    def __init__(self, data_dir, split, create_data, name, **kwargs):
 
         super().__init__()
         self.data_dir = data_dir
@@ -19,9 +19,9 @@ class PTB(Dataset):
         self.max_sequence_length = kwargs.get('max_sequence_length', 50)
         self.min_occ = kwargs.get('min_occ', 3)
 
-        self.raw_data_path = os.path.join(data_dir, 'ptb.'+split+'.txt')
-        self.data_file = 'ptb.'+split+'.json'
-        self.vocab_file = 'ptb.vocab.json'
+        self.raw_data_path = os.path.join(data_dir, name+'.'+split+'.txt')
+        self.data_file = name+'.'+split+'.json'
+        self.vocab_file = name+'.vocab.json'
 
         if create_data:
             print("Creating new %s ptb data."%split.upper())
