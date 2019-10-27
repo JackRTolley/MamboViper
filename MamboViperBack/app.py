@@ -25,10 +25,12 @@ auth_token = "dbf82fb8f77da28e5c4d03edc2756a9e"
 def smsService():
     client = Client(account_sid, auth_token)
     subreddit = request.args.get('subreddit')
+    result = CommentGenerator().run(subreddit)
+    print(result)
 
     message = client.messages \
                 .create(
-                    body=CommentGenerator().run(subreddit).comments,
+                    body = result["comments"],
                     from_="+448000119489",
                     to=request.args.get("phone_number")
                 )
