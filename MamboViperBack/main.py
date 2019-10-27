@@ -21,7 +21,7 @@ class CommentGenerator:
             # print(args)
             if ( "-a" in args or "--All" in args ):
                 # Everything
-                self.load_model('finaldata')
+                result = self.load_model('finaldata')
             elif ( "-f " in args or "--Funspiracy" in args):
                 # Funspiracy
                 pass
@@ -41,7 +41,7 @@ class CommentGenerator:
             return({
                 "result": "success",
                 "info": "Successfully Generated Comments",
-                "comments": "here",
+                "comments": result,
             })
         except Exception as e:
             # stdout command help.
