@@ -9,6 +9,11 @@ const Styles = {
     RedditIconStyles: css`
         margin-right: 10px;
         color: red;
+    `,
+    SubtitleStyles: css`
+        font-size: 10px;
+        margin-left: 110%;
+        padding-left: 35px;
     `
 }
 

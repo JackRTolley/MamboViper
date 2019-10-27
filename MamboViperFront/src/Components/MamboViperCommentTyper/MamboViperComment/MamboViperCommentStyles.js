@@ -4,16 +4,29 @@ import { css, cx } from "emotion";
 const Styles = {
      CommentJumbotronStyles: css`
         background-color: white;
-        border: 1px solid red;
-        border-bottom: 4px solid red;
+        border: 3px solid whitesmoke;
         border-radius: 5px;
         width: 40vw;
         min-width: 200px;
-        padding: 15px;
+        padding: 25px;
+
+        font-family: "Quicksand";
+
+        margin: auto;
         margin-top: 25px;
-        font-family: "Quicksand"
+        margin-bottom: 25px;
+        margin-top: 25px;
     
     `,
+    TextHoverClass: css `
+        color: grey;
+        &:hover {
+            color: black;
+            font-size: 18px;
+            transition: all 0.75s;
+            cursor: default;
+        }
+    `
 }
 
 export default Styles;
