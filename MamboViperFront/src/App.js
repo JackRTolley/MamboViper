@@ -31,7 +31,7 @@ class App extends Component {
         // Update comment list in state.
         try {
             const subreddit = "-a";
-            let URL = `http://0.0.0.0:5000/?subreddit=${subreddit}`;
+            let URL = `http://127.0.0.1:5000/?subreddit=${subreddit}`;
             let comment = ""
 
 
