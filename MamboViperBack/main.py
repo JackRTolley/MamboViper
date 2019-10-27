@@ -109,9 +109,14 @@ Miscellaneous
 
         model.eval()
 
-        samples, z = model.inference(n=10)
+        samples, z = model.inference(n=50)
         print('----------SAMPLES----------')
         comments = idx2word(samples, i2w=i2w, pad_idx=w2i['<pad>'])
-        print(comments[0])
-        return comments[0]
+        for comment in comments:
+
+            uniqueness = len(set(comment.split(" ")))/len(comment.split(" "))
+            if '<unk>' not in comment.split(" ") and uniqueness>0.8:
+                comment = comment[0].upper() + comment[1:-4] + "."
+                print(comment)
+                return comment
 
