@@ -43,9 +43,9 @@ def smsService():
     })
 
 
-@app.route('/smsReturnService')
+@app.route('/smsSpamService')
 @cross_origin()
-def smsReturnService():
+def smsSpamService():
     for i in range(10):
         client = Client(account_sid, auth_token)
         subreddit = request.args.get('subreddit')
@@ -59,6 +59,10 @@ def smsReturnService():
                         to=request.args.get("phone_number")
                     )
         time.sleep(5)
+    return jsonify({
+        "content": "An Internet Game for Horrible Devs",
+    })
+
 
 
 if __name__ == '__main__':
