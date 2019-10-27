@@ -11,7 +11,7 @@ class MamboViperPhoneNumber extends Component {
     render(){
         return(
             <div className={ cx(Styles.PhoneNumberParentStyles) }>  
-                <h1 className={ cx(Styles.PhoneNumberWrapperStyles, "text-muted")}>+18152614761</h1>
+                <h1 className={ cx(Styles.PhoneNumberWrapperStyles, "text-muted")}>08000119489</h1>
             </div>
         )
     }
