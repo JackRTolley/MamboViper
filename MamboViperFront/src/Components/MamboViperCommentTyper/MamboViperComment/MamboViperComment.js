@@ -20,7 +20,7 @@ class MamboViperComment extends Component {
     render(){
         return (
             <div className={ cx( Styles.CommentJumbotronStyles, "shadow-sm" ) } variant="light">
-                <div className={ cx( Styles.TextHoverClass ) }>{this.props.content.substring(7, this.props.content.length-9)}</div>
+                <div className={ cx( Styles.TextHoverClass ) }>{this.props.content}</div>
             </div>
         )
     }
