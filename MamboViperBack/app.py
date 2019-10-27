@@ -3,6 +3,9 @@ from flask import Flask, request, redirect
 from flask import jsonify
 from main import *
 
+from twilio.twiml.messaging_response import Body, Message, Redirect, MessagingResponse
+import time
+
 from twilio.rest import Client
 from twilio import twiml
 
@@ -39,14 +42,23 @@ def smsService():
         "content": "An Internet Game for Horrible Devs",
     })
 
-"""
+
 @app.route('/smsReturnService')
 @cross_origin()
 def smsReturnService():
-    subreddit = request.args.get('subreddit')
-    resp = twiml.Response()
-    resp.message(CommentGenerator().run(subreddit))
-"""
+    for i in range(10):
+        client = Client(account_sid, auth_token)
+        subreddit = request.args.get('subreddit')
+        result = CommentGenerator().run(subreddit)
+        print(result)
+
+        message = client.messages \
+                    .create(
+                        body = result["comments"],
+                        from_="441274451650",
+                        to=request.args.get("phone_number")
+                    )
+        time.sleep(5)
 
 
 if __name__ == '__main__':
