@@ -22,7 +22,7 @@ class CommentGenerator:
             if ( "-a" in args or "--All" in args ):
                 # Everything
                 result = self.load_model('finaldata')
-            elif ( "-f " in args or "--Funspiracy" in args):
+            elif ( "-f" in args or "--Funspiracy" in args):
                 # Funspiracy
                 result = self.load_model('funnycon')
             elif ( "-r" in args or "--Reddit" in args):
