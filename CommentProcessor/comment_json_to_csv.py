@@ -2,26 +2,24 @@ import numpy as np
 import pandas as pd
 import csv
 
+chunk_size = 100000
+
 subreddits = ["apple","android","technology","cats","dogs","tech","programing","hardware","linux","aww",]
 
 
-good_chars = " 1234567890-=qwertyuiop]asdfghjkl;'#zxcvbnm,./!£$%^&*()_+QWERTYUIOPASDFGHJKL:@~ZXCVBNM<>?"
+good_chars = list(" qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM")
 
 
 for sub in subreddits:
     csvFile = open("CommentProcessor/" + sub + ".csv", "w+")
     csvFile.close()
 
-data = pd.read_json (r"C:\Users\Guy\Desktop\data\RC_2019-02-28\Comment_data.json", lines=True, chunksize=10000)
+data = pd.read_json (r"C:\Users\Guy\Desktop\data\RC_2019-02-28\Comment_data.json", lines=True, chunksize=chunk_size)
 
-i = 1
+i = chunk_size
 
 for chunk in data:
 
-    print("Chunk:")
-    print(i)
-    print("")
-    i = i + 1
 
     block = pd.DataFrame(chunk)
     #print(block.columns)
@@ -41,22 +39,15 @@ for chunk in data:
                     break
 
             if (is_from_sellected_subreddits):
-                
-                valid = True
 
-                
+                validComment = "".join([ char for char in comment[1]['body'] if char in good_chars])
 
-                for letter in comment[1]['body']:
-                    any_bad_chars = True
-                    for char in good_chars:
-                        if char == letter:
-                            any_bad_chars = False
-                            break
-                    if any_bad_chars:
-                        valid = False
+                comment[1]['body'] = validComment
 
+                split = comment[1]['body'].split(" ")
 
-                if valid:
+                #if valid:
+                if len(split) < 30 and comment[1]['body'] != "deleted" and comment[1]['body'] != "removed" and len(comment[1]['body']) > 0:
                     print(comment[1]['body'])
                     print("")
                     newCommment = [comment[1]['body']]
@@ -67,6 +58,11 @@ for chunk in data:
                     writer = csv.writer(csvFile)
                     writer.writerow(newCommment)
                     csvFile.close()
+                    
+    print("Comments Proccessed:")
+    print(i)
+    print("")
+    i = i + chunk_size
 
  
     
