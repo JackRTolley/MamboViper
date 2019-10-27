@@ -24,7 +24,7 @@ class CommentGenerator:
                 result = self.load_model('finaldata')
             elif ( "-f " in args or "--Funspiracy" in args):
                 # Funspiracy
-                pass
+                result = self.load_model('funnycon')
             elif ( "-r" in args or "--Reddit" in args):
                 # Reddit
                 pass
