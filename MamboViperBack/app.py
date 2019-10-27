@@ -31,7 +31,7 @@ def smsService():
     message = client.messages \
                 .create(
                     body = result["comments"],
-                    from_="+448000119489",
+                    from_="448000119489",
                     to=request.args.get("phone_number")
                 )
 
