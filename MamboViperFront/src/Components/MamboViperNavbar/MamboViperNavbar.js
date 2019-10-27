@@ -18,6 +18,11 @@ class MamboViperNavbar extends Component {
                     <Navbar.Brand href="#">
                         <i className={cx("fab", "fa-reddit", Styles.RedditIconStyles, "fa-lg")}></i>
                         Reddit Against Humanity
+                        <div className={cx( Styles.SubtitleStyles, "text-muted", "ml-auto" )}>
+                            <div>
+                                <em>An Internet Game for Horrible Devs</em>
+                            </div>
+                        </div>
                     </Navbar.Brand>
                 </Navbar>
             </div>

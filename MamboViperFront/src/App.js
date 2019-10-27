@@ -30,38 +30,44 @@ class App extends Component {
         console.log("Generating Comments...");
         // Update comment list in state.
         try {
-            this.setState({
-                comments: this.state.comments.concat(["<p><em>\" A test sentence. \"</em></p>"])
-            })
+            let URL = "";
+            let newComment = "";
+
+
+            try {
+                // FETCH
+                fetch(URL)
+                .then(response => response.json())
+                .then(data => newComment += data.comments)
+            } finally {
+                this.setState({
+                    comments: this.state.comments.concat(newComment)
+                })
+            }
         } finally {
             console.log(this.state.comments);
         }
 
     }
     render(){
-        const Android = <>
-            <i className="fab fa-android"></i>
-            &nbsp;&nbsp;Android
+        const Sport = <>
+            <i class="fas fa-running"></i>
+            &nbsp;&nbsp;Sport
         </>
 
-        const Programming = <>
-            <i className="fab fa-github-alt"></i>
-            &nbsp;&nbsp;Programming
+        const Gaming = <>
+            <i class="fas fa-dragon"></i>
+            &nbsp;&nbsp;Gaming
         </>
 
-        const CatsAndDogs = <>
-            <i className="fas fa-cat"></i>
-            &nbsp;&nbsp;Cats and Dogs
+        const Funspiracy = <>
+            <i class="fas fa-search"></i>
+            &nbsp;&nbsp;Funspiracy
         </>
 
-        const Apple = <>
-            <i className="fab fa-apple"></i>
-            &nbsp;&nbsp;Apple
-        </>
-
-        const Hardware = <>
-            <i className="fab fa-android"></i>
-            &nbsp;&nbsp;Hardware
+        const GeneralChat = <>
+            <i class="fab fa-reddit-alien"></i>
+            &nbsp;&nbsp;Reddit
         </>
 
         const All = <>
@@ -73,7 +79,7 @@ class App extends Component {
             <>
                 <MamboViperNavbar id="MamboViperNavbar"/>
                 <Container>
-                    <MamboViperThemeChooser choices={[Android, Programming, CatsAndDogs, Apple, Hardware, All]} handleGenerate={this.handleGenerate}/>
+                    <MamboViperThemeChooser choices={[Sport, GeneralChat, Gaming, Funspiracy, All]} handleGenerate={this.handleGenerate}/>
                     <MamboViperCommentTyper comments={this.state.comments}/>
                 </Container>
             </>
